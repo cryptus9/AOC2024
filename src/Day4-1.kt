@@ -17,7 +17,7 @@ private fun solve(rawData: List<String>): Int {
                         matches++
                     }
                 }
-                if (col >= 4) {
+                if (col >= 3) {
                     val prev = line.substring(col - 3, col)
                     if (prev.matches(Regex("SAM"))) {
                         matches++
@@ -40,7 +40,7 @@ private fun solve(rawData: List<String>): Int {
                     if (col <= line.length - 4) {
                         diagonals.add(rawData[row + 1][col + 1].toString() + rawData[row + 2][col + 2] + rawData[row + 3][col + 3])
                     }
-                    if (col >= 4) {
+                    if (col >= 3) {
                         diagonals.add(rawData[row + 1][col - 1].toString() + rawData[row + 2][col - 2] + rawData[row + 3][col - 3])
                     }
                 }
@@ -48,7 +48,7 @@ private fun solve(rawData: List<String>): Int {
                     if (col <= line.length - 4) {
                         diagonals.add(rawData[row - 1][col + 1].toString() + rawData[row - 2][col + 2] + rawData[row - 3][col + 3])
                     }
-                    if (col >= 4) {
+                    if (col >= 3) {
                         diagonals.add(rawData[row - 1][col - 1].toString() + rawData[row - 2][col - 2] + rawData[row - 3][col - 3])
                     }
                 }
@@ -64,6 +64,7 @@ private fun checkTestConditions() {
     check(2 == solve(listOf("ABCSDFXGGGDGXMASFSDFXMASSDF")))
     check(3 == solve(listOf("ABCSAMXSDFXGGGDGXMASFSDFXMASSDF")))
     check(4 == solve(listOf("ABCSAMXMASSDFXGGGDGXMASFSDFXMASSDF")))
+    check(1 == solve(listOf("SAMXF")))
     check(5 == solve(listOf("ABCSAMXMASSDFXGGGDGXMASAMXFSDFXMASSDF")))
     check(
         1 == solve(
