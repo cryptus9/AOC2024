@@ -10,7 +10,7 @@ private fun solve(rawData: List<String>): Int {
     val result = rawData.mapIndexed { row, line ->
         line.mapIndexed { col, char ->
             if (col > 0 && row > 0 && col < line.length - 1 && row < rawData.size - 1 && char == 'A') {
-                var matches = 0;
+                var matches = 0
                 if (rawData[row + 1][col + 1] != rawData[row - 1][col - 1]
                     && rawData[row + 1][col - 1] != rawData[row - 1][col + 1]) {
                     val chars = listOf(
@@ -19,7 +19,6 @@ private fun solve(rawData: List<String>): Int {
                         rawData[row + 1][col + 1],
                         rawData[row + 1][col - 1],
                     )
-                    println(chars)
                     if (chars.count { it == 'M' } == 2 && chars.count { it == 'S' } == 2) {
                         matches++
                     }
