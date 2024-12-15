@@ -11,7 +11,8 @@ fun main() {
 
 fun solve(rules: List<Pair<Int, Int>>, updates: List<List<Int>>): Int {
     return updates.sumOf { update ->
-        val isUpdateValid = rules.filter { update.containsAll(it.toList()) }
+        val isUpdateValid = rules
+            .filter { update.containsAll(it.toList()) }
             .none { !isUpdateValidForRule(it, update) }
         if (isUpdateValid) {
             update[update.size / 2]
